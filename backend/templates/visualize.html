@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block content %}
+<h2>Data Visualization</h2>
+<h3>{{ patient.name }}</h3>
+<div id="chart"></div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById("chart").getContext("2d");
+  const chart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: { data, safe },
+      datasets: [
+        {
+          label: "Patient Data",
+          data: { data, safe },
+          borderColor: "rgba(75, 192, 192, 1)",
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+</script>
+{% endblock %}

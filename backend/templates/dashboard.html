@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block content %}
+<h2>Dashboard</h2>
+<h3>Your Patients</h3>
+<ul>
+  {% for patient in patients %}
+  <li>
+    <a href="{{ url_for('patients.patient_details', patient_id=patient.id) }}"
+      >{{ patient.name }}</a
+    >
+  </li>
+  {% endfor %}
+</ul>
+<a href="{{ url_for('patients.new_patient') }}">Add New Patient</a><br />
+<a href="{{ url_for('reports.upload') }}">Upload Patient Data</a>
+{% endblock %}
